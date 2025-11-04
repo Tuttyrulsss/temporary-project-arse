@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f3f6f9;
+  color: #111827;
+}
+
+
+.cipher-root {
+  display: flex;
+  justify-content: center;
+  padding: 28px 16px;
+}
+
+.cipher-card {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  padding: 20px;
+}
+
+.cipher-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 20px
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 13px
+}
+
+.controls .row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px
+}
+
+.controls .row label {
+  min-width: 120px;
+  font-weight: 600
+}
+
+.controls textarea,
+.result textarea,
+.reverse textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  resize: vertical;
+}
+
+.controls select,
+.controls input[type=number],
+.controls input[type=text] {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb
+}
+
+.small label {
+  min-width: 140px
+}
+
+.actions {
+  margin-top: 14px
+}
+
+.primary {
+  background: #0ea5a4;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  background: #f3f4f6;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb
+}
+
+.sub-controls button {
+  margin-right: 8px
+}
+
+.result {
+  margin-top: 16px
+}
+
+.reverse {
+  margin-top: 18px
+}
+
+.cipher-footer {
+  margin-top: 14px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.bf {
+  max-height: 160px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px dashed #e5e7eb;
+  margin-top: 8px
+}
