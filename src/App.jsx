@@ -94,7 +94,7 @@ export default function CipherTrainer() {
     <div className="cipher-root">
       <div className="cipher-card">
         <header className="cipher-header">
-          <h1>Тренажёр шифров — русский текст</h1>
+          <h1>Тренажёр шифров</h1>
           <div className="muted">Алгоритмы: Цезарь, Виженер, Подстановка</div>
         </header>
 
@@ -166,7 +166,7 @@ export default function CipherTrainer() {
           })()} rows={4} />
         </section>
 
-        <footer className="cipher-footer">Для обучения — не использовать для реальной защиты</footer>
+     
       </div>
     </div>
   )
