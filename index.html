@@ -116,18 +116,185 @@
       font-weight: 600;
     }
 
-    .map-container {
-      margin-top: 35px;
+    /* Specialties button */
+    .specialties-btn {
+      display: flex;
+      align-items: center;
+      padding: 18px;
+      margin-bottom: 14px;
+      background: #f9fafa;
       border-radius: 12px;
-      overflow: hidden;
-      height: 320px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #eee;
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
     }
 
-    .map-container iframe {
+    .specialties-btn:hover {
+      background: #eef2ff;
+      border-color: #003366;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0, 51, 102, 0.1);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 35px;
+      max-width: 720px;
       width: 100%;
-      height: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      animation: modalIn 0.3s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #003366;
+    }
+
+    .modal-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
       border: none;
+      background: #f0f0f0;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      color: #555;
+    }
+
+    .modal-close:hover {
+      background: #e0e0e0;
+    }
+
+    .specialties-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .specialties-table thead tr {
+      background: #003366;
+      color: #fff;
+    }
+
+    .specialties-table thead th {
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    .specialties-table thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .specialties-table thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .specialties-table tbody tr {
+      border-bottom: 1px solid #eee;
+      transition: background 0.2s;
+    }
+
+    .specialties-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .specialties-table tbody tr:hover {
+      background: #eef2ff;
+    }
+
+    .specialties-table tbody td {
+      padding: 13px 14px;
+      color: #333;
+      vertical-align: top;
+    }
+
+    .spec-name {
+      font-weight: 600;
+      color: #003366;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .spec-icon {
+      font-size: 18px;
+    }
+
+    .spec-code {
+      font-family: monospace;
+      color: #555;
+      font-size: 13px;
+    }
+
+    .spec-qual {
+      color: #444;
+    }
+
+    .spec-term {
+      color: #555;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .modal-note {
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: #f0f4ff;
+      border-left: 3px solid #003366;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #555;
     }
 
     .footer {
@@ -161,18 +328,28 @@
         font-size: 20px;
       }
 
-      .map-container {
-        height: 250px;
+      .modal {
+        padding: 28px 20px;
+      }
+
+      .specialties-table thead th,
+      .specialties-table tbody td {
+        padding: 10px 10px;
+        font-size: 13px;
       }
     }
 
     @media (max-width: 480px) {
-      .map-container {
-        height: 200px;
-      }
-
       .container {
         padding: 25px 20px;
+      }
+
+      .specialties-table {
+        font-size: 12px;
+      }
+
+      .modal-title {
+        font-size: 18px;
       }
     }
   </style>
@@ -221,11 +398,12 @@
       </div>
     </a>
 
-    <a href="https://forms.gle/kUQdmNZbvyKorNUx8" target="_blank" class="contact-item">
-      <div class="icon">📋</div>
+    <!-- Specialties button -->
+    <a href="specialties.html" class="specialties-btn">
+      <div class="icon">🎓</div>
       <div class="contact-content">
-        <div class="contact-label"></div>
-        <div class="contact-value">Анкета абитуриента</div>
+        <div class="contact-label">Направления обучения</div>
+        <div class="contact-value">Наши специальности</div>
       </div>
     </a>
 
@@ -233,6 +411,8 @@
       © 2026 Колледж Туран Астана
     </div>
   </div>
+
+
 </body>
 
 </html>
